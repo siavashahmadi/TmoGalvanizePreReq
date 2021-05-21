@@ -1,6 +1,7 @@
-# PaStarterAngular
+# Pre-Assessment Angular Starter
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.1.
+## Usage
+After cloning this repo, you'll need to install the dependencies: `npm install`
 
 ## Development server
 

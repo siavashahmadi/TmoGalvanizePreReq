@@ -1,43 +1,30 @@
 <div>
   <h1 class="doNotRemoveMe">Hello world.</h1>
   <!-- ^ Do not remove this element ^ -->
-  <!-- <h1>My Recipes</h1>
-
-    <button type="button" (click)="onClick()" form="add-recipe">Add Recipe</button>
-
-      <form class="add-recipe" ngShow="">
-        <div class="add-recipe">
-          <label for="recipeName">Recipe Name:</label>
-          <input type="text" id="name" [(ngModel)]="recipeName">
-        </div>
-
-        <div class="add-recipe">
-          <label for="recipeInstructions">Recipe Instructions:</label>
-          <input type="text" id="instructions" [(ngModel)]="recipeInstructions">
-        </div>
-      </form>
-
-    <p>There are no recipes to list</p> -->
-
     <h1>My Recipes</h1>
-    <p>
+    <p *ngIf="this.recipeArray.length > 0; else showThis">{{recipeArray.toString()}}</p>
+    <ng-template #showThis>      
       There are no recipes to list
-      
-      {{formData.value}}
-    </p>
+    </ng-template>
+    <!-- <p *ngIf="!addRecipe">There are no recipes to list</p>
+    <p>
+      {{recipeArray.toString()}}
+    </p> -->
 
     <button type="button" *ngIf="!addParameter" (click)="toggleForm()">Add Recipe</button>
 
       <form [formGroup]="formData" id="add-recipe" *ngIf="addParameter" (ngSubmit)="onSubmit()">
-        <!-- <div id="add-recipe"> -->
-          <label for="recipe-name">recipe-name</label>
-          <input type="text" name="recipe-name" id="name" formControlName="Name">
-        <!-- </div> -->
 
-        <!-- <div id="add-recipe"> -->
-          <label for="recipe-instructions">recipe-instructions</label>
-          <input type="text" name="recipe-instructions" id="instructions" formControlName="Instructions">
-        <!-- </div> -->
+          <label for="recipe-name">
+            recipe-name
+            <input type="textarea" name="recipe-name" id="name" formControlName="Recipe">
+          </label>
+        
+          <label for="recipe-instructions">
+            recipe-instructions
+            <input type="textarea" name="recipe-instructions" id="instructions" formControlName="Instructions">
+          </label>
+
         <button type="button" *ngIf="addParameter" (click)="onSubmit()" (click)="toggleForm()">Submit</button>
 
       </form>

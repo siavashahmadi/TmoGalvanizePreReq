@@ -11,29 +11,28 @@ export class AppComponent {
   recipeName = '';
   recipeInstructions = '';
   addParameter:boolean=false;
-  formData!: FormGroup;
-
-  ngOnInit() {
-    this.formData = new FormGroup({
-      Name: new FormControl('Al Pastor Tacos'),
-      Instructions: new FormControl('1. Cook Pork, 2. Heat Tortillas')
-    })
-  }
+  addRecipe:boolean=false;
+  recipeArray = new Array();
+  formData = new FormGroup({
+    Recipe: new FormControl(''),
+    Instructions: new FormControl('')
+  })
 
   toggleForm() {
-    // hides form, initially, for inputting new recipes
-    // also used for hiding 'Add Recipe' button after click
     this.addParameter = !this.addParameter
   }
 
   onSubmit() {
-    console.log("recipe form submitted!!!")
-    
-    console.log(this.formData.value)
-    
     this.formData.setValue
+    this.recipeArray.push(this.formData.value.Recipe)
+    // var str = this.recipeArray.toString()
+    // console.log(this.recipeArray.toString())
+    // console.log("recipe form submitted!!!")
+    // console.log(this.recipeArray.length)
+    // console.log(this.formData.value)
 
-    console.log(this.formData.value)
+    if (this.recipeArray.length > 1 ) {
+      this.addRecipe = !this.addRecipe
+    } 
   }
-
 }

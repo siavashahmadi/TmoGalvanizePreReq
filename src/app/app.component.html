@@ -6,12 +6,14 @@
     <form [formGroup]="recipeForm" id="add-recipe" *ngIf="addParameter" (ngSubmit)="onSubmit()" >
       <label for="recipe-name">
         recipe-name
-        <input role="textbox" type="text" name="recipe-name" id="name" formControlName="Recipe">
       </label>
+      <input role="textbox" type="text" name="recipe-name" id="name" formControlName="Recipe">
+      <br />
       <label for="recipe-instructions">
         recipe-instructions
-        <input role="textbox" type="text" name="recipe-instructions" id="instructions" formControlName="Instructions">
       </label>
+      <input role="textbox" type="text" name="recipe-instructions" id="instructions" formControlName="Instructions">
+      <br />
       <button type="submit" *ngIf="addParameter" >Submit</button>
     </form>
     <br>

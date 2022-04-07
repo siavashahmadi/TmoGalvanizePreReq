@@ -30,12 +30,12 @@
 
       <form [formGroup]="formData" id="add-recipe" *ngIf="addParameter" (ngSubmit)="onSubmit()">
         <!-- <div id="add-recipe"> -->
-          <label for="recipe-name">Name:</label>
+          <label for="recipe-name">recipe-name</label>
           <input type="text" name="recipe-name" id="name" formControlName="Name">
         <!-- </div> -->
 
         <!-- <div id="add-recipe"> -->
-          <label for="recipe-instructions">Instructions:</label>
+          <label for="recipe-instructions">recipe-instructions</label>
           <input type="text" name="recipe-instructions" id="instructions" formControlName="Instructions">
         <!-- </div> -->
         <button type="button" *ngIf="addParameter" (click)="onSubmit()" (click)="toggleForm()">Submit</button>

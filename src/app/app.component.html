@@ -2,24 +2,35 @@
   <h1 class="doNotRemoveMe">Hello world.</h1>
   <!-- ^ Do not remove this element ^ -->
     <h1>My Recipes</h1>
+    <button type="button" *ngIf="!addParameter" (click)="toggleForm()">Add Recipe</button>
+    <form [formGroup]="recipeForm" id="add-recipe" *ngIf="addParameter" (ngSubmit)="onSubmit()" >
+      <label for="recipe-name">
+        recipe-name
+        <input type="text" name="recipe-name" id="name" formControlName="Recipe">
+      </label>
+      <label for="recipe-instructions">
+        recipe-instructions
+        <input type="text" name="recipe-instructions" id="instructions" formControlName="Instructions">
+      </label>
+      <button type="submit" *ngIf="addParameter" >Submit</button>
+    </form>
     <br>
-    <p *ngIf="this.recipeArray.length > 0; else showThis">{{recipeArray.toString()}}</p>
+    <ul *ngIf="this.recipeArray.length > 0; else showThis">
+      <li *ngFor="let recipe of recipeArray">{{recipe}}
+      </li>
+    </ul>
     <ng-template #showThis>      
       There are no recipes to list
     </ng-template>
 
     <br>
-    <button type="button" *ngIf="!addParameter" (click)="toggleForm()">Add Recipe</button>
-      <form [formGroup]="formData" id="add-recipe" *ngIf="addParameter" (ngSubmit)="onSubmit()">
-          <label for="recipe-name">
-            recipe-name
-            <input type="text" name="recipe-name" id="name" formControlName="Recipe">
-          </label>
-          <label for="recipe-instructions">
-            recipe-instructions
-            <input type="text" name="recipe-instructions" id="instructions" formControlName="Instructions">
-          </label>
-        <button type="button" *ngIf="addParameter" (click)="onSubmit()" (click)="toggleForm()">Submit</button>
-      </form>
+    
+
+    
+      
 </div>
- 
+
+
+
+
+

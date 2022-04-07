@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,7 @@ export class AppComponent {
   addParameter:boolean=false;
   addRecipe:boolean=false;
   recipeArray = new Array();
-  formData = new FormGroup({
+  recipeForm = new FormGroup({
     Recipe: new FormControl(''),
     Instructions: new FormControl('')
   })
@@ -23,16 +23,15 @@ export class AppComponent {
   }
 
   onSubmit() {
-    this.formData.setValue
-    this.recipeArray.push(this.formData.value.Recipe)
-    // var str = this.recipeArray.toString()
-    // console.log(this.recipeArray.toString())
-    // console.log("recipe form submitted!!!")
-    // console.log(this.recipeArray.length)
-    // console.log(this.formData.value)
+    this.toggleForm()
+    this.recipeForm.addControl
+    this.recipeArray.push(this.recipeForm.value.Recipe)
+    this.recipeForm.reset()
 
-    if (this.recipeArray.length > 1 ) {
-      this.addRecipe = !this.addRecipe
-    } 
+    console.log(this.recipeArray.toString())
+    console.log(this.recipeArray.length)
+    console.log(this.recipeForm)
+
+    
   }
 }

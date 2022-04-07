@@ -2,10 +2,12 @@
   <h1 class="doNotRemoveMe">Hello world.</h1>
   <!-- ^ Do not remove this element ^ -->
     <h1>My Recipes</h1>
-    <p *ngIf="this.recipeArray.length > 0; else showThis">{{recipeArray.toString()}}</p>
+    <div>
+      <p *ngIf="this.recipeArray.length > 0; else showThis">{{recipeArray.toString()}}</p>
     <ng-template #showThis>      
       There are no recipes to list
     </ng-template>
+    </div> 
     <!-- <p *ngIf="!addRecipe">There are no recipes to list</p>
     <p>
       {{recipeArray.toString()}}
@@ -13,7 +15,7 @@
 
     <button type="button" *ngIf="!addParameter" (click)="toggleForm()">Add Recipe</button>
 
-      <form [formGroup]="formData" id="add-recipe" *ngIf="addParameter" (ngSubmit)="onSubmit()">
+      <form [formGroup]="formData" id="add-recipe"  (ngSubmit)="onSubmit()">
 
           <label for="recipe-name">
             recipe-name

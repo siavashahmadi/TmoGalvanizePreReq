@@ -6,27 +6,22 @@
     <form [formGroup]="recipeForm" id="add-recipe" *ngIf="addParameter" (ngSubmit)="onSubmit()" >
       <label for="recipe-name">
         recipe-name
-        <input type="text" name="recipe-name" id="name" formControlName="Recipe">
+        <input role="textbox" type="text" name="recipe-name" id="name" formControlName="Recipe">
       </label>
       <label for="recipe-instructions">
         recipe-instructions
-        <input type="text" name="recipe-instructions" id="instructions" formControlName="Instructions">
+        <input role="textbox" type="text" name="recipe-instructions" id="instructions" formControlName="Instructions">
       </label>
       <button type="submit" *ngIf="addParameter" >Submit</button>
     </form>
     <br>
-    <ul *ngIf="this.recipeArray.length > 0; else showThis">
-      <li *ngFor="let recipe of recipeArray">{{recipe}}
+    <ul *ngIf="this.recipeArray.length > 0; else recipeListEmpty">
+      <li *ngFor="let recipe of recipeArray" role="listitem">{{recipe}}
       </li>
     </ul>
-    <ng-template #showThis>      
+    <ng-template #recipeListEmpty>      
       There are no recipes to list
     </ng-template>
-
-    <br>
-    
-
-    
       
 </div>
 

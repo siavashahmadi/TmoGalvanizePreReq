@@ -7,14 +7,14 @@
       <label for="recipe-name">
         recipe-name
       </label>
-      <input role="textbox" type="text" name="recipe-name" id="name" formControlName="Recipe">
+      <input aria-label="recipe-name" type="text" name="recipe-name" id="name" formControlName="Recipe" />
       <br />
       <label for="recipe-instructions">
         recipe-instructions
       </label>
-      <input role="textbox" type="text" name="recipe-instructions" id="instructions" formControlName="Instructions">
+      <input aria-label="recipe-instructions" type="text" name="recipe-instructions" id="instructions" formControlName="Instructions" />
       <br />
-      <button type="submit" *ngIf="addParameter" >Submit</button>
+      <button type="submit" *ngIf="addParameter">Submit</button>
     </form>
     <br>
     <ul *ngIf="this.recipeArray.length > 0; else recipeListEmpty">
